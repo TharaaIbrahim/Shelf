@@ -15,6 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $categories=Category::all();
+        return view('admin/categorytable',compact('categories'));
     }
 
     /**
@@ -25,6 +27,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('admin/categorycreate');
     }
 
     /**
@@ -35,7 +38,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $checkCategory=Category::where('category_name',$request->category_name)->first();
+        if(!empty($checkCategory)){
+            return redirect()->back()->with('categoryerror','This Category is Already Exist');
+        }else{
+            Category::create($request->all());
+            $categories=Category::all();
+            return view('admin.categorytable',compact("categories"));}
     }
 
     /**
@@ -58,6 +68,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        return view('admin/categoryedit',compact('category'));
     }
 
     /**
@@ -70,6 +81,13 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        $checkCategory=Category::where('category_name',$request->category_name)->where('id','<>',$request->id)->first();
+        if(!empty($checkCategory)){
+            return redirect()->back()->with('categoryerror','This Category is Already Exist');
+        }else{
+        $category->update($request->all());
+        $categories=Category::all();
+        return view('admin.categorytable',compact("categories"));}
     }
 
     /**
@@ -81,5 +99,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category->deleteOrFail();
+        return redirect()->back();
     }
 }

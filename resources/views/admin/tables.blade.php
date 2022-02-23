@@ -63,7 +63,7 @@
                                             <td>{{$book->name}}</td>   
                                             <td>{{$book->book_name}}</td> 
                                             <td>{{$book->category_name}}</td> 
-                                            <td><img src="{{$book->image}}" alt="{{$book->book_name}}" width="300vw"/></td>
+                                            <td><img src="{{ asset('/assets/img/'.$book->image) }}" alt="{{$book->book_name}}" width="300vw"/></td>
                                             <td>{{$book->price}}JD</td>
                                             <td>{{$book->description}}</td>
                                             <td>{{$book->delivery}}</td>

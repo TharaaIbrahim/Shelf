@@ -24,7 +24,7 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">edit User</h3></div>
                                     <div class="container">
 
-                                        <form method="post" action="{{route('user.update',$user->id)}}">
+                                        <form method="post" action="{{route('users.update',$user->id)}}">
                                             @csrf
                                             @method('PUT')
                                             <div class="mb-3">
@@ -35,6 +35,17 @@
                                                 <label for="exampleFormControlInput1" class="form-label">email</label>
                                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required value="{{$user->email}}">
                                             </div>
+                                            @if(!empty(Session::get('emailerror')))
+                                            <div class="alert alert-danger"> {{ Session::get('emailerror') }}</div>
+                                              @endif
+                                              <select name="role" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                                         @if($user->role == 'admin') 
+                                                         <option value='admin' selected>   Admin </option>  
+                                                         <option value='user'>   User </option>@else 
+                                                         <option value='admin' >   Admin </option>  
+                                                         <option value='user' selected>   User </option> @endif
+                                                          
+                                            </select>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">password</label>
                                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>

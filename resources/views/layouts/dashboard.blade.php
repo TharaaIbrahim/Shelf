@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">RelaxO</a>
+            <a class="navbar-brand ps-3" href="index.html">Shelf</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -41,9 +41,9 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Tables</div>
                            <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Rooms</a>
-                                    <a class="nav-link" href="#">Users</a>
-                                    <a class="nav-link" href="#">Reservations</a>
+                                    <a class="nav-link" href="{{route('admin.index')}}">Books</a>
+                                    <a class="nav-link" href="{{route('users.index')}}">Users</a>
+                                    <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                                 </nav>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                
@@ -57,8 +57,9 @@
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">Create Room</a>
-                                            <a class="nav-link" href="#">Create User</a>
+                                            <a class="nav-link" href="{{route('books.create')}}">Create Book</a>
+                                            <a class="nav-link" href="{{route('users.create')}}">Create User</a>
+                                            <a class="nav-link" href="{{route('categories.create')}}">Create Category</a>
                                         </nav>
                                 </nav>
                             </div>

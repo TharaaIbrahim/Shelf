@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Create User</title>
+        <title>Create Category</title>
         <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -21,33 +21,16 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8" >
                                 <div class="card shadow-lg border-0 rounded-lg m-5">
-                                    <div class="card-header"  ><h3 class="text-center font-weight-light my-4">Create User</h3></div>
+                                    <div class="card-header"  ><h3 class="text-center font-weight-light my-4">Create Category</h3></div>
                                     <div class="container">
-                                        <form method="post" action="{{route('users.store')}}">
+                                        <form method="post" action="{{route('categories.store')}}">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">name</label>
-                                                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter name">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">email</label>
-                                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
-                                            </div>
-                                            @if(!empty(Session::get('emailerror')))
-                                            <div class="alert alert-danger"> {{ Session::get('emailerror') }}</div>
+                                                <input type="text" name="category_name" class="form-control" id="exampleFormControlInput1" placeholder="Category Name">
+                                            </div>   @if(!empty(Session::get('categoryerror')))
+                                            <div class="alert alert-danger"> {{ Session::get('categoryerror') }}</div>
                                               @endif
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Role</label>
-                                                <select name='role' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                            <option>Role</option>
-                                            <option value="admin">Admin</option>
-                                            <option value="user">User</option>           
-                                            </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">password</label>
-                                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                                            </div>
                                             <input class="mb-5" type="submit" value="submit">
                                         </form>
                                         

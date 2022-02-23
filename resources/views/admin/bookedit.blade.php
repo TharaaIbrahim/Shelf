@@ -34,26 +34,25 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="image" name="img" value="{{$book->image}}"/>
-                                                        <label for="inputPasswordConfirm">Image</label>
-                                                    </div>
+                                                <div class="form-floating mb-3"> 
+                                                <input type="file" id="myfile" name="image" value="{{$book->image}}" required>
+                                                <!-- <input class="form-control" id="inputEmail" type="text" placeholder="Enter Image" name="image"  />
+                                                <label for="inputEmail">Image</label> -->
+                                            </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description" value="{{$book->description}}" />
                                                 <label for="inputEmail">Description</label>
                                             </div>
-                                            <div class="row mb-3">
-                                            <select name="category_id" class="form-floating mb-3">
-                                                          <!-- <option>{{$selected->category_name}}</option> -->
-                                                          @foreach($categories as $category)
+                                            
+                                            <select name="category_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            @foreach($categories as $category)
                                                          @if($category->category_name != $selected->category_name) 
                                                          <option value='{{ $category->id }}'>   {{$category->category_name}} </option> @else 
                                                          <option value='{{ $selected->id }}' selected>   {{$selected->category_name}} </option> @endif
                                                           @endforeach
-                                                      </select>
-                                            </div>
+                                            </select>
                                             <div class="mt-4 mb-0">
                                                 <div class="d-grid"><button type="submit">Edit Room</button></div>
                                             </div>

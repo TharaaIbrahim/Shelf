@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Edit Category</title>
+        <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+            
+            @section('content')
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8" >
+                                <div class="card shadow-lg border-0 rounded-lg m-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit Category</h3></div>
+                                    <div class="container">
+                                        <form method="post" action="{{route('categories.update',$category->id)}}">
+                                            @csrf
+                                            @method('put')
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                                                <input type="text" name="category_name" value="{{$category->category_name}}" class="form-control" id="exampleFormControlInput1" placeholder="Category Name">
+                                            </div>  
+                                            @if(!empty(Session::get('categoryerror')))
+                                            <div class="alert alert-danger"> {{ Session::get('categoryerror') }}</div>
+                                              @endif
+                                            <input class="mb-5" type="submit" value="Edit">
+                                        </form>
+                                        
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{{asset('js/scripts.js')}}"></script>
+   
+    </body>
+</html>

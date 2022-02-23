@@ -43,12 +43,19 @@
                                                 <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description"  />
                                                 <label for="inputEmail">Description</label>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" placeholder="Enter Image" name="image"  />
-                                                <label for="inputEmail">Image</label>
+                                            <div class="form-floating mb-3"> 
+                                                <input type="file" id="myfile" name="image">
+                                                <!-- <input class="form-control" id="inputEmail" type="text" placeholder="Enter Image" name="image"  />
+                                                <label for="inputEmail">Image</label> -->
                                             </div>
-                                            <div class="row mb-3">
-                                                <div class="col-md-6">
+                                         
+                                            <select name='category_id' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            <option>Category</option>
+                                                          @foreach($categories as $category)
+                                                          <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                                          @endforeach
+                                            </select>
+                                                <!-- <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                       <select name='category_id' class="col-md-6">
                                                           <option>Category</option>
@@ -56,14 +63,14 @@
                                                           <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                           @endforeach
                                                       </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
+                                                    </div> -->
+                                               
+                                                <!-- <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input class="form-control" id="inputPasswordConfirm" type="number" placeholder="Admin" name="user_id"/>
                                                         <label for="inputPasswordConfirm">User Name</label>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             <div class="mt-4 mb-0">
                                                 <div class="d-grid"><button type="submit">Create Book</button></div>
                                             </div>
