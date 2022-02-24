@@ -1,0 +1,96 @@
+.Home_ID {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        var(--primary),
+        var(--background_body)
+    );
+}
+.Home_ID > img {
+    width: 50%;
+    opacity: 0.7;
+}
+
+.Home_ID_Content {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+}
+.Home_ID_Title > p {
+    text-align: center;
+    font-size: 1.2em;
+}
+.Home_ID_Title {
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from {
+        margin-left: -15%;
+        width: 100%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+.Home_ID_Content button {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--nav_color);
+}
+
+.registraion {
+    margin-left: 1rem;
+    background-color: var(--nav_color);
+    color: var(--primary);
+    border: 1px solid var(--nav_color);
+}
+.registraion > a {
+    color: var(--primary);
+}
+.registraion:hover {
+    background-color: var(--nav_color);
+    color: var(--primary);
+}
+.login {
+    background-color: (var(--background_body));
+    color: var(--primary);
+    border: 1px solid var(--nav_color);
+}
+.login:hover {
+    background-color: var(--nav_color);
+    color: var(--primary);
+}
+/* Home */
+.on-shelf {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2% 0%;
+}
+/*  Card CSS */
+.cards-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 30%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}

@@ -17,12 +17,25 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('shelf/home');
 });
+Route::get('/about', function () {
+    return view('shelf/about');
+});
+Route::get('/account', function () {
+    return view('shelf/account');
+});
+Route::get('/addbook', function () {
+    return view('shelf/addbook');
+});
+Route::get('/contact', function () {
+    return view('shelf/contact');
+});
+
 Route::resource('/admin',AdminController::class);
 Route::resource('/books',BookController::class);
 Route::resource('/users',UserController::class);
 Route::resource('/categories',CategoryController::class);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

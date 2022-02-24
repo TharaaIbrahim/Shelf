@@ -1,0 +1,74 @@
+.add_Book {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: 0px 4px 8px 0px var(--nav_color);
+    border-radius: 1rem;
+}
+.addBook_Title {
+    width: 100%;
+    text-align: center;
+    background-color: var(--nav_color);
+    color: var(--primary);
+    border-radius: 1rem;
+}
+.addBook_Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.addBook_Form label {
+    width: 40%;
+}
+.description {
+    border: 2px solid var(--background_body);
+    border-radius: 0.5rem;
+}
+.category_Select > select,
+.delivery_Status > select {
+    border: 2px solid var(--background_body);
+    border-radius: 0.5rem;
+    height: 2.2rem;
+}
+.description,
+#bookName_msg,
+#description_msg {
+    width: 40%;
+    align-self: center;
+    text-align: right;
+}
+#bookName_msg,
+#description_msg {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: red;
+}
+.delivery_Status,
+.category_Select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#delivery,
+#category {
+    width: 40%;
+    text-align: right;
+}
+.addBook_Btn {
+    width: 40%;
+    padding: 0.5rem;
+    border: 1px solid var(--nav_color);
+    background-color: var(--nav_color);
+    align-self: center;
+    margin: 1rem 0%;
+    border-radius: 1rem;
+    font-size: 1em;
+}
+.addBook_Btn:hover {
+    background-color: #032b8f;
+}

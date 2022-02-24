@@ -1,0 +1,44 @@
+.account-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 3% 0;
+}
+.account-info {
+    background-color: var(--gray);
+    box-shadow: 0 4px 8px 0 var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 10%;
+    width: 20%;
+}
+.account-info > ul {
+    margin-top: 1rem;
+}
+.account-top > i {
+    font-size: 10em;
+    color: var(--nav_color);
+}
+.sections {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    font-weight: bold;
+    width: 100%;
+}
+.sections > li {
+    background-color: var(--gray);
+    width: 10%;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 var(--shadow);
+}
+.sections > li:hover {
+    background-image: linear-gradient(
+        to right,
+        var(--primary),
+        var(--nav_color)
+    );
+    cursor: pointer;
+}
