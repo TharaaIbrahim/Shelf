@@ -15,10 +15,10 @@ use App\Http\Controllers\CategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('shelf/home');
-});
+Route::get('/', [BookController::class, 'bestprice'])->name('books.bestprice');
+// Route::get('/', function () {
+//     return view('shelf/home');
+// });
 Route::get('/about', function () {
     return view('shelf/about');
 });

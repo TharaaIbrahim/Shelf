@@ -16,10 +16,34 @@ class BookController extends Controller
     public function index()
     {
         //
-        return view('shelf/shelf');
+        $books= DB::table('books')->select([
+            'users.name',
+            'books.id',
+            'books.book_name',
+            'books.description',
+            'books.delivery',
+            'books.image',
+            'books.price',
+            'books.phone',
+            'categories.category_name',
+        ])->Join('users','books.user_id', '=', 'users.id')
+        ->Join('categories','categories.id', '=','books.category_id')
+        ->get();
+       
+        return view('shelf/shelf',compact('books'));
         
     }
+    
+    public function bestprice()
+    {
+        //
 
+         $lastBooks= Book ::join('users', 'users.id', '=', 'books.user_id')-> latest('books.created_at')->take(3)->get();
+         $free=Book ::join('users', 'users.id', '=', 'books.user_id')-> where('price','=',0)->take(3)->get();
+        //  dd($bestPrice);
+         return view ('shelf/home',compact('lastBooks' , 'free'));
+        
+    }
     /**
      * Show the form for creating a new resource.
      *

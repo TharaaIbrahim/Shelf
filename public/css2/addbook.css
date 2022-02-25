@@ -7,6 +7,7 @@
     border: 2px solid var(--primary);
     box-shadow: 0px 4px 8px 0px var(--nav_color);
     border-radius: 1rem;
+    line-height: 1;
 }
 .addBook_Title {
     width: 100%;
@@ -21,8 +22,29 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
-.addBook_Form label {
+.categories,
+.image-input {
+    align-self: center;
     width: 40%;
+    margin-bottom: 1rem;
+}
+.image-input {
+    margin-top: 1rem;
+}
+.image-input > input {
+    width: 100%;
+}
+.categories > select,
+.categories > label {
+    width: 100% !important;
+}
+input,
+label {
+    align-self: center;
+    width: 40%;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-color: var(--background_body);
 }
 .description {
     border: 2px solid var(--background_body);
@@ -39,7 +61,6 @@
 #description_msg {
     width: 40%;
     align-self: center;
-    text-align: right;
 }
 #bookName_msg,
 #description_msg {
@@ -57,7 +78,6 @@
 #delivery,
 #category {
     width: 40%;
-    text-align: right;
 }
 .addBook_Btn {
     width: 40%;

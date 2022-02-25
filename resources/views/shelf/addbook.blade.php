@@ -18,14 +18,15 @@
     <div class="add_Book">
       <h1 class="addBook_Title">Add Book</h1>
       <form class="addBook_Form" >
+      <label for="book_name">Book Name</label>
         <Input
           type="text"
           name="bookName"
           placeholder="Book Name"
           required
-        />
+        >
         <p id="bookName_msg"></p>
-        <label htmlFor="description">Description</label>
+        <label for="description">Description</label>
         <textarea
           rows="5"
           class="description"
@@ -53,13 +54,18 @@
             <option value="businees">businees</option>
           </select>
         </div>
+        <label for="description">Price</label>
         <Input
           type="number"
           name="price"
           placeholder="JD"
           required
         />
-        <Input type="file" name="img" placeholder="Book Image" required />
+        <div class="image-input"> 
+            <label>Book Image</label>
+            <Input type="file" name="img" placeholder="Book Image" required />
+        </div>
+       
         <div class="delivery_Status">
           <label htmlFor="delivery">Delivery Option</label>
           <select

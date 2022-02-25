@@ -49,53 +49,26 @@
       </div>
 
       <div class="shelf-books">
+        @foreach($books as $book)
       <div class="card-container">
-      <img src="assets/img/book2.png" alt='' />
-      <h3>Book Name</h3>
+      <img src="{{ asset('/assets/img/'.$book->image) }}" alt="{{$book->book_name}}" >
+      <h3>{{$book->book_name}}</h3>
+      <p>{{$book->category_name}}</p>
       <p>
-        <b>2 JD</b>
+        <b>{{$book->price}} JD</b>
       </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quisquam aliquid beatae consequuntur illo.</p>
+      <p>{{$book->description}}</p>
+      <p> <b>Published by:</b> {{$book->name}}</p>
+      <p>  <i class="far fa-phone"></i> {{$book->phone}} </p>
       <p>
         <b>Delivery Option:</b>
-        Allowed
+        {{$book->delivery}}
       </p>
       <i class="far fa-heart" ></i>
       <!-- <i class="fa fa-heart"></i> -->
     </div>
-
-    <div class="card-container">
-      <img src="assets/img/book2.png" alt='' />
-      <h3>Book Name</h3>
-      <p>
-        <b>2 JD</b>
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quisquam aliquid beatae consequuntur illo.</p>
-      <p>
-        <b>Delivery Option:</b>
-        Allowed
-      </p>
-      <i class="far fa-heart"></i>
-     <!-- <i class="fa fa-heart"></i> -->
-    </div>
-
-    <div class="card-container">
-      <img src="assets/img/book2.png" alt='' />
-      <h3>Book Name</h3>
-      
-      <p>
-        <b>2 JD</b>
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quisquam aliquid beatae consequuntur illo.</p>
-      <p>Published by: userName</p>
-      <p>  <i class="far fa-phone"></i> 07777777</p>
-      <p>
-        <b>Delivery Option:</b>
-        Allowed
-      </p>
-      <i class="far fa-heart"></i>
-     <!-- <i class="fa fa-heart"></i> -->
-    </div>
+     @endforeach
+  
       </div>
     </div>
     <!-- JavaScript Bundle with Popper -->

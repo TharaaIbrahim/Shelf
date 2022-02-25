@@ -10,6 +10,7 @@
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="css2/nav.css" rel="stylesheet" >
+<link href="css2/shelf.css" rel="stylesheet" >
 <link href="css2/index.css" rel="stylesheet" >
 <link href="css2/home.css" rel="stylesheet" >
 </head>
@@ -33,59 +34,49 @@
       </div>
     </div>
     <div class="on-shelf">
-    <h2>Best Prices</h2>
+    <h2>New Books</h2>
     <div class='cards-container'>
-        <div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+      @foreach($lastBooks as $book)
+      <div class="card-container">
+      <img src="{{ asset('/assets/img/'.$book->image) }}" alt="{{$book->book_name}}" >
+      <h3>{{$book->book_name}}</h3>
+      <p>
+        <b>{{$book->price}} JD</b>
+      </p>
+      <p> <b>Published by:</b> {{$book->name}}</p>
+      <p>  <i class="far fa-phone"></i> {{$book->phone}} </p>
+      <p>
+        <b>Delivery Option:</b>
+        {{$book->delivery}}
+      </p>
+      <i class="far fa-heart" ></i>
+      <!-- <i class="fa fa-heart"></i> -->
+    </div> @endforeach
 
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
 </div>
 
 <div class="on-shelf">
     <h2>Free Books</h2>
     <div class='cards-container'>
-        <div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+      @foreach($free as $book)
+      <div class="card-container">
+      <img src="{{ asset('/assets/img/'.$book->image) }}" alt="{{$book->book_name}}" >
+      <h3>{{$book->book_name}}</h3>
+      <p>
+        <b>{{$book->price}} JD</b>
+      </p>
+      <p> <b>Published by:</b> {{$book->name}}</p>
+      <p>  <i class="far fa-phone"></i> {{$book->phone}} </p>
+      <p>
+        <b>Delivery Option:</b>
+        {{$book->delivery}}
+      </p>
+      <i class="far fa-heart" ></i>
+      <!-- <i class="fa fa-heart"></i> -->
+    </div> @endforeach
 
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
 
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div></div>
+</div>
 
     </div>
 

@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('book_name');
             $table->text('description');
+            $table->text('phone');
             $table->double('price');
             $table->text('image');
             $table->enum('delivery', ['available', 'unavailable']);
