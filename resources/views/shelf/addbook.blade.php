@@ -17,14 +17,18 @@
     @section('content')
     <div class="add_Book">
       <h1 class="addBook_Title">Add Book</h1>
-      <form class="addBook_Form" >
+      <form  action="{{route('books.store')}}" method="post" class="addBook_Form" >
+      @csrf
       <label for="book_name">Book Name</label>
         <Input
           type="text"
-          name="bookName"
+          name="book_name"
           placeholder="Book Name"
           required
         >
+        @if(!empty(Session::get('message')))
+                           <div class="alert alert-danger"> {{ Session::get('message') }}</div>
+                            @endif
         <p id="bookName_msg"></p>
         <label for="description">Description</label>
         <textarea
@@ -35,26 +39,32 @@
           placeholder="Enter Description"
           required
         ></textarea>
+        @if(!empty(Session::get('message')))
+                           <div class="alert alert-danger"> {{ Session::get('message') }}</div>
+                            @endif
         <p id="description_msg"></p>
+        <label for="phone">Phone</label>
+        <Input
+          type="tel"
+          name="phone"
+          placeholder="0XX XXXXXXX"
+          required
+        >
         <div class="categories">
           <label for="category">Category</label>
           <select
           class="form-select"
             id="category"
-            name="category"
+            name="category_id"
+            required
           >
-            <option value="">Books Categories</option>
-            <option value="novel">Novel</option>
-            <option value="religious">Religious</option>
-            <option value="historical">Historical</option>
-            <option value="scientific">Scientific</option>
-            <option value="kids">Kids</option>
-            <option value="textBook">TextBook</option>
-            <option value="self development">Self development</option>
-            <option value="businees">businees</option>
+          <option value="">Books Categories</option>
+          @foreach($categories as $category)
+          <option value="{{$category->id}}">{{$category->category_name}}</option>
+            @endforeach>
           </select>
         </div>
-        <label for="description">Price</label>
+        <label for="price">Price</label>
         <Input
           type="number"
           name="price"
@@ -63,7 +73,7 @@
         />
         <div class="image-input"> 
             <label>Book Image</label>
-            <Input type="file" name="img" placeholder="Book Image" required />
+            <Input type="file" name="image" placeholder="Book Image" required />
         </div>
        
         <div class="delivery_Status">
@@ -78,6 +88,7 @@
             <option value="unavailable">Unavailable</option>
           </select>
         </div>
+        <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
         <button class="addBook_Btn" type="submit">
           Add
         </button>

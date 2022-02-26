@@ -16,18 +16,16 @@ use App\Http\Controllers\CategoryController;
 |
 */
 Route::get('/', [BookController::class, 'bestprice'])->name('books.bestprice');
-// Route::get('/', function () {
-//     return view('shelf/home');
-// });
+Route::get('/addbook', [BookController::class, 'addbook'])->name('books.addbook');
 Route::get('/about', function () {
     return view('shelf/about');
 });
 Route::get('/account', function () {
     return view('shelf/account');
 });
-Route::get('/addbook', function () {
-    return view('shelf/addbook');
-});
+// Route::get('/addbook', function () {
+//     return view('shelf/addbook');
+// });
 Route::get('/contact', function () {
     return view('shelf/contact');
 });

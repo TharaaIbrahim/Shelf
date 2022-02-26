@@ -10,11 +10,20 @@ nav {
     background-color: var(--nav_color);
     color: var(--primary);
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     top: 0;
     position: sticky;
     z-index: 100;
 }
+.auth-list {
+    width: 30%;
+    align-self: center;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: row;
+}
+
 .Logo {
     display: flex;
     flex-direction: row-reverse;
@@ -36,10 +45,11 @@ nav {
     list-style: none;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 40%;
     font-size: 1.2em;
 }
-.navbar a {
+.navbar a,
+.auth-list > a {
     text-decoration: none;
     color: var(--primary);
     padding: 1rem;
@@ -70,9 +80,11 @@ nav {
     color: white;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.auth-list > a:hover {
     background-color: var(--background_body);
     padding: 1rem;
+    color: var(--primary);
 }
 .toggle-btn {
     width: 5rem;

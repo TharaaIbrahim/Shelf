@@ -74,6 +74,7 @@
                                             <div class="mt-4 mb-0">
                                                 <div class="d-grid"><button type="submit">Create Book</button></div>
                                             </div>
+                                            <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
                                         </form>
                                     </div>
                                    

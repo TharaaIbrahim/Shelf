@@ -25,12 +25,12 @@
       <div class="Home_ID_Content">
         <div class="Home_ID_Title">
           <h1> Shelf is a Joradnian Website </h1>
-          <p> Allows user to buy books of sell thier own Books</p>
+          <p> Allows user to buy books or sell thier own Books</p>
         </div>
-
-        <button class="login">
+       <a href="{{route('books.index')}}"><button class="login">
          Show Shelf
-        </button>
+        </button></a>
+        
       </div>
     </div>
     <div class="on-shelf">

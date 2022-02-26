@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Book;
 use App\Models\category;
 use Illuminate\Http\Request;
@@ -55,7 +56,10 @@ class BookController extends Controller
         $categories=Category::all();
         return view('admin.bookcreate',compact('categories'));
     }
-
+    public function addbook(){
+        $categories=Category::all();
+        return view('shelf/addbook',compact('categories'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -65,7 +69,12 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
-        Book::create($request->all());
+        if($request->book_name >10){
+            return redirect()->back()->with('message','name must be less than 10 char');
+        }else if($request->description > 25){
+            return redirect()->back()->with('message','description must be less than 10 char');
+        }else{
+               Book::create($request->all());
         $books= DB::table('books')->select([
             'users.name',
             'books.id',
@@ -74,11 +83,19 @@ class BookController extends Controller
             'books.delivery',
             'books.image',
             'books.price',
+            'books.phone',
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')
         ->Join('categories','categories.id', '=','books.category_id')
         ->get();
-        return view('admin.tables',compact("books"));
+        if(Auth::user()->role == "admin"){
+           return view('admin.tables',compact("books")); 
+        }else{
+            return view('shelf/shelf',compact("books"));
+        }
+        
+        }
+     
     }
 
     /**

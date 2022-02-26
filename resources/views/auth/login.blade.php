@@ -8,116 +8,25 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RelaxO Hotel</title>
+    <title>Login|Shelf</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <!-- <style>
-           .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-            color: #dfa974;
-            background-color: #dfa974
-           }
-           .nav-pills .nav-link.active, .nav-pills .show>.nav-link:focus{
-            color: white;
-            background-color: #dfa974
-           }
-           .nav-link-faded{
-               color: #dfa974;
-           }
-           .nav-link-faded:hover{
-               color: #dfa974;
-           }
-     </style> -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css2/shelf.css" rel="stylesheet" >
+    <link href="css2/nav.css" rel="stylesheet" >
+    <link href="css2/index.css" rel="stylesheet" > 
 </head>
 
 <body>
        <!-- Header Section Begin -->
        <header class="header-section">
         
-        <div class="menu-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="logo">
-                            <a href="/">
-                                <!-- <img src="img/logo.png" alt=""> -->
-                                <h2 style="font-family: 'Lora', serif">RelaxO<span style="color: #dfa974;">.</span></h2>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="nav-menu">
-                            <nav class="mainmenu row">
-                                <ul class="row">
-                                    <li class="active"><a href="/">Home</a></li>
-                                    <li><a href="/rooms">Rooms</a></li>
-                                    <li><a href="/about">About Us</a></li>
-                                    <li><a href="/contact">Contact</a></li>
-                                    
-                    <!-- Right Side Of Navbar -->
-                    <ul class="row ml-5 pl-5" style="padding-left: 12em!important">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="row">
-                                <a id="navbarDropdown"
-                                 {{-- class="nav-link dropdown-toggle"  --}}
-                                 href="{{ route('auth.userProfile') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                {{-- <div class="row" --}}
-                                {{-- class="dropdown-menu dropdown-menu-end" --}}
-                                 {{-- aria-labelledby="navbarDropdown"
-                                 > --}}
-                                    <a  href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
-                                        @csrf
-                                    </form>
-                                {{-- </div> --}}
-                            </li>
-                        @endguest
-                    </ul>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       @extends('layouts.footer')
+@extends('layouts.nav')
+    @section('content')
     </header>
-<div class="container form-group mb-5 mt-5">
+<div class="container form-group mb-5 mt-5" style="margin:7% auto !important">
 {{-- <div class="container form-group"> --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -170,7 +79,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary" style="background-color: #dfa974;border: none">
+                                <button type="submit" class="btn btn-primary" style="background-color: var(--nav_color);border: none">
                                     {{ __('Login') }}
                                 </button>
 
@@ -187,73 +96,11 @@
         </div>
     </div>
 </div>
-<footer class="footer-section">
-    <div class="container">
-        <div class="footer-text">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="ft-about">
-                        <div class="logo">
-                            <a href="#">
-                                <!-- <img src="img/footer-logo.png" alt=""> -->
-                            <h2 style="font-family: 'Lora', serif;color:white">RelaxO<span style="color: #dfa974;">.</span></h2>
 
-                            </a>
-                        </div>
-                        <p>We inspire and reach millions of travelers</p>
-                        <div class="fa-social">
-                            <a href="https://web.facebook.com/" class="pt-2"><i class="fa fa-facebook"></i></a>
-                            <a href="https://twitter.com/"  class="pt-2"><i class="fa fa-twitter"></i></a>
-                            <!-- <a href="#"><i class="fa fa-tripadvisor"></i></a> -->
-                            <a href="https://www.instagram.com/"  class="pt-2"><i class="fa fa-instagram"></i></a>
-                            <!-- <a href="#"><i class="fa fa-youtube-play"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="ft-contact">
-                        <h6>Contact Us</h6>
-                        <ul>
-                            <li>0777163510</li>
-                            <li>RelaxO.Hotel@gmail.com</li>
-                            <!-- <li>856 Cordia Extension Apt. 356, Lake, United State</li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="ft-newslatter">
-                        <h6>New latest</h6>
-                        <p>Get the latest updates and offers.</p>
-                        <form action="#" class="fn-form">
-                            <input type="text" placeholder="Email">
-                            <button type="submit"><i class="fa fa-send"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <ul>
-                        <li><a href="/contact">Contact</a></li>
-                        <!-- <li><a href="#">Terms of use</a></li> -->
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/rooms">Rooms</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-5">
-                    <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="js2/nav.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
+@endsection
