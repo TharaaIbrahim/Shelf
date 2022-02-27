@@ -11,7 +11,7 @@
       <a class="links" href="/books" >Shelf</a> 
       <a  Class="links" href="/about">About</a> 
       <a  class="links" href="#">Contact</a> 
-      <a  class="links" href="/addbook">Add Book</a> 
+      <a  class="links" href="{{route('books.addbook')}}">Add Book</a> 
       <a  href="/account" >Account</a>
      </div>
      <div class="auth-list">
