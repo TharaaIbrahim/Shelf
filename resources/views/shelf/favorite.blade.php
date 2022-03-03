@@ -10,6 +10,7 @@
     <link href="css2/account.css" rel="stylesheet" >
     <link href="css2/nav.css" rel="stylesheet" >
     <link href="css2/index.css" rel="stylesheet" > 
+    <link href="css2/shelf.css" rel="stylesheet" >
 </head>
 <body>
 @extends('layouts.footer')
@@ -27,11 +28,33 @@
       </div>
       <main>
         <ul class="sections">
-    <a  href="{{route('users.mybooks')}}" ><li>My Books</li>  </a>  
+      <a  href="{{route('users.mybooks')}}"   > <li >My Books</li> </a>
          <a href="/addbook">  <li>Add Book </li></a>
-        <a><li>Favorite</li></a>  
+         <a  href="{{route('users.mybooks')}}" style="background-color:var(--nav_color);  transform: scale(.90, .90);"  > <li style="color:var(--primary);">Favorite</li></a> 
         </ul>
       </main>
+      <div class="shelf-books">
+        @foreach($userBooks as $book)
+      <div class="card-container">
+      <img src="{{ asset('/assets/img/'.$book->image) }}" alt="{{$book->book_name}}" >
+      <h3>{{$book->book_name}}</h3>
+      <p>{{$book->category_name}}</p>
+      <p>
+        <b>{{$book->price}} JD</b>
+      </p>
+      <p>{{$book->description}}</p>
+      <p> <b>Published by:</b> {{$book->name}}</p>
+      <p>  <i class="far fa-phone"></i> {{$book->phone}} </p>
+      <p>
+        <b>Delivery Option:</b>
+        {{$book->delivery}}
+      </p>
+      <i class="far fa-heart" ></i>
+      <!-- <i class="fa fa-heart"></i> -->
+    </div>
+     @endforeach
+  
+      </div>
     </div>.<script src="js2/nav.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

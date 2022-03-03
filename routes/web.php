@@ -17,12 +17,15 @@ use App\Http\Controllers\CategoryController;
 */
 Route::get('/', [BookController::class, 'bestprice'])->name('books.bestprice');
 Route::get('/addbook', [BookController::class, 'addbook'])->name('books.addbook');
+Route::get('/account', [UserController::class, 'account'])->name('users.account');
+Route::get('/mybooks', [UserController::class, 'userBooks'])->name('users.mybooks');
+Route::get('/favorite', [UserController::class, 'favorite'])->name('users.favorite');
 Route::get('/about', function () {
     return view('shelf/about');
 });
-Route::get('/account', function () {
-    return view('shelf/account');
-});
+// Route::get('/account', function () {
+//     return view('shelf/account');
+// });
 // Route::get('/addbook', function () {
 //     return view('shelf/addbook');
 // });

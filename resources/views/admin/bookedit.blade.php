@@ -35,7 +35,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                 <div class="form-floating mb-3"> 
-                                                <input type="file" id="myfile" name="image" value="{{$book->image}}" required>
+                                                <input type="file" id="myfile" name="image"  required>
                                                 <!-- <input class="form-control" id="inputEmail" type="text" placeholder="Enter Image" name="image"  />
                                                 <label for="inputEmail">Image</label> -->
                                             </div>
@@ -54,7 +54,7 @@
                                                           @endforeach
                                             </select>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><button type="submit">Edit Room</button></div>
+                                                <div class="d-grid"><button type="submit">Edit Book</button></div>
                                             </div>
                                         </form>
                                     </div>

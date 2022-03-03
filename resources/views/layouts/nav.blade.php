@@ -12,7 +12,7 @@
       <a  Class="links" href="/about">About</a> 
       <a  class="links" href="#">Contact</a> 
       <a  class="links" href="{{route('books.addbook')}}">Add Book</a> 
-      <a  href="/account" >Account</a>
+      <a  href="{{route('users.account')}}" >Account</a>
      </div>
      <div class="auth-list">
                         <!-- Authentication Links -->

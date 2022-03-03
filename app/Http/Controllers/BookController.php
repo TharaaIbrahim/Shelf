@@ -134,7 +134,7 @@ class BookController extends Controller
     {
         //
         
-        $book->update(['book_name'=>$request->name,'description'=>$request->description,'image'=>$request->img,'category_id'=>$request->category_id]);   
+        $book->update(['book_name'=>$request->name,'description'=>$request->description,'image'=>$request->image,'category_id'=>$request->category_id]);   
         $books= DB::table('books')->select([
             'users.name',
             'books.id',
@@ -149,6 +149,8 @@ class BookController extends Controller
         ->get();
         return view('admin.tables',compact("books"));  
     }
+
+   
 
     /**
      * Remove the specified resource from storage.

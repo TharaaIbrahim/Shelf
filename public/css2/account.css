@@ -27,18 +27,29 @@
     font-weight: bold;
     width: 100%;
 }
-.sections > li {
+.sections > a {
     background-color: var(--gray);
     width: 10%;
     padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 8px 0 var(--shadow);
+    color: black;
 }
-.sections > li:hover {
+/* .sections > li > a {
+    color: black;
+} */
+.sections > a:hover {
     background-image: linear-gradient(
         to right,
         var(--primary),
         var(--nav_color)
     );
     cursor: pointer;
+    color: black;
+}
+.edit-delete {
+    display: flex;
+}
+.edit-delete > button {
+    margin-right: 1rem;
 }

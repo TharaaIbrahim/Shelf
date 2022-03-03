@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -28,6 +30,32 @@ class UserController extends Controller
         //
         return view('admin.usercreate');
 
+    }
+    public function account(){
+        $id= Auth::user()->id ;
+       $userAccount=User::where('id',$id)->first();
+       return view('shelf.account',compact('userAccount'));
+    }
+
+    public function userBooks(){
+        $id= Auth::user()->id ;
+        $userAccount=User::where('id',$id)->first();
+        $userBooks= DB::table('books')->select([
+            'users.name',
+            'books.id',
+            'books.book_name',
+            'books.description',
+            'books.delivery',
+            'books.image',
+            'books.price',
+            'books.phone',
+            'categories.category_name',
+        ])->Join('users','books.user_id', '=', 'users.id')
+        ->Join('categories','categories.id', '=','books.category_id')
+        ->Where('users.id', '=' , $id)
+        ->get();
+        // dd($userAccount);
+        return view ('shelf.userBooks',compact('userBooks','userAccount'));
     }
 
     /**
