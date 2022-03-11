@@ -19,8 +19,9 @@
       <h1 class="addBook_Title">Add Book</h1>
       <form  action="{{route('books.store')}}" method="post" class="addBook_Form" >
       @csrf
-      <label for="book_name">Book Name</label>
+      <label class="label-form" for="book_name">Book Name</label>
         <Input
+        class="input-form"
           type="text"
           name="book_name"
           placeholder="Book Name"
@@ -30,7 +31,7 @@
                            <div class="alert alert-danger"> {{ Session::get('message') }}</div>
                             @endif
         <p id="bookName_msg"></p>
-        <label for="description">Description</label>
+        <label class="label-form" for="description">Description</label>
         <textarea
           rows="5"
           class="description"
@@ -43,15 +44,16 @@
                            <div class="alert alert-danger"> {{ Session::get('message') }}</div>
                             @endif
         <p id="description_msg"></p>
-        <label for="phone">Phone</label>
+        <label class="label-form" for="phone">Phone</label>
         <Input
+        class="input-form"
           type="tel"
           name="phone"
           placeholder="0XX XXXXXXX"
           required
         >
         <div class="categories">
-          <label for="category">Category</label>
+          <label class="label-form" for="category">Category</label>
           <select
           class="form-select"
             id="category"
@@ -64,20 +66,21 @@
             @endforeach>
           </select>
         </div>
-        <label for="price">Price</label>
+        <label class="label-form" for="price">Price</label>
         <Input
+        class="input-form"
           type="number"
           name="price"
           placeholder="JD"
           required
         />
         <div class="image-input"> 
-            <label>Book Image</label>
-            <Input type="file" name="image" placeholder="Book Image" required />
+            <label class="label-form">Book Image</label>
+            <Input  class="input-form" type="file" name="image" placeholder="Book Image" required />
         </div>
        
         <div class="delivery_Status">
-          <label htmlFor="delivery">Delivery Option</label>
+          <label class="label-form" htmlFor="delivery">Delivery Option</label>
           <select
             id="delivery"
             name="delivery"
@@ -88,7 +91,7 @@
             <option value="unavailable">Unavailable</option>
           </select>
         </div>
-        <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
+        <input class="input-form" name="user_id" type="hidden" value="{{ Auth::user()->id }}">
         <button class="addBook_Btn" type="submit">
           Add
         </button>

@@ -10,14 +10,15 @@ nav {
     background-color: var(--nav_color);
     color: var(--primary);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     top: 0;
     position: sticky;
     z-index: 100;
 }
 .auth-list {
-    width: 30%;
+    /* width: 30%; */
+    margin-right: 3rem;
     align-self: center;
     font-size: 1.2em;
     display: flex;
@@ -33,7 +34,7 @@ nav {
 .Logo > img {
     width: 50%;
 }
-.Logo > label {
+.logo-label {
     align-self: center;
     font-size: 2rem;
     color: var(--primary);
@@ -45,7 +46,7 @@ nav {
     list-style: none;
     align-items: center;
     justify-content: center;
-    width: 40%;
+    /* width: 40%; */
     font-size: 1.2em;
 }
 .navbar a,
@@ -99,17 +100,20 @@ nav {
     .navbar {
         display: none;
         flex-direction: column;
-        gap: 1rem;
+        /* gap: 1rem; */
         width: 100%; /* will take a seperate column*/
     }
     .navbar.show {
         display: flex;
     }
-    body {
-        padding-right: 0;
-    }
-    nav {
+    /* nav {
         width: 100%;
+    } */
+    .auth-list {
+        margin-right: 3rem;
+    }
+    .Logo {
+        margin-left: 3rem;
     }
     .hamburger {
         display: block;
@@ -126,7 +130,7 @@ nav {
         background-color: #343a40;
     }
 }
-@media only screen and (min-width: 901px) and (max-width: 1200px) {
+/* @media only screen and (min-width: 901px) and (max-width: 1200px) {
     .navbar div {
         padding-left: 1.5rem;
     }
@@ -134,8 +138,8 @@ nav {
         gap: 20%;
         width: 100%;
     }
-}
-@media only screen and (min-width: 500px) and (max-width: 900px) {
+} */
+@media only screen and (min-width: 500px) and (max-width: 950px) {
     .navbar {
         display: none;
         flex-direction: column;
@@ -147,6 +151,9 @@ nav {
     }
     nav {
         gap: 15%;
+    }
+    .auth-list {
+        margin-right: 5rem;
     }
     .navbar div a:hover {
         padding: 0.5rem;

@@ -17,9 +17,10 @@ use App\Http\Controllers\CategoryController;
 */
 Route::get('/', [BookController::class, 'bestprice'])->name('books.bestprice');
 Route::get('/addbook', [BookController::class, 'addbook'])->name('books.addbook');
+Route::get('/filter', [BookController::class, 'filter'])->name('books.filter');
 Route::get('/account', [UserController::class, 'account'])->name('users.account');
 Route::get('/mybooks', [UserController::class, 'userBooks'])->name('users.mybooks');
-Route::get('/favorite', [UserController::class, 'favorite'])->name('users.favorite');
+Route::get('/favorite/{id}', [BookController::class, 'favorite'])->name('books.favorite');
 Route::get('/about', function () {
     return view('shelf/about');
 });

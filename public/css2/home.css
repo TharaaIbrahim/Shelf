@@ -83,7 +83,35 @@
 .cards-container {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .cards-container > div {
     width: 20%;
+}
+@media only screen and (min-width: 280px) and (max-width: 500px) {
+    .Home_ID > img {
+        width: 40%;
+    }
+    .Home_ID_Content {
+        width: 60%;
+        padding: 1rem;
+    }
+    .Home_ID_Content > p {
+        font-size: 1em !important;
+    }
+    .cards-container > div {
+        width: 70%;
+        margin-bottom: 1rem;
+    }
+}
+@media only screen and (min-width: 501px) and (max-width: 600px) {
+    .cards-container > div {
+        width: 55%;
+        margin-bottom: 1rem;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 950px) {
+    .cards-container > div {
+        width: 30%;
+    }
 }

@@ -1,6 +1,6 @@
      <nav class="topnav">
      <div class="Logo">  
-       <label>Shelf</label>
+       <label class='logo-label'>Shelf</label>
 <img src="assets/img/shelf-logo white.png" alt="shelf website's logo">
           </div>
         <button class="hamburger" id="hamburger">
@@ -10,9 +10,12 @@
       <a class="links" href="/">Home</a>
       <a class="links" href="/books" >Shelf</a> 
       <a  Class="links" href="/about">About</a> 
-      <a  class="links" href="#">Contact</a> 
+      <!-- <a  class="links" href="#">Contact</a>  -->
       <a  class="links" href="{{route('books.addbook')}}">Add Book</a> 
-      <a  href="{{route('users.account')}}" >Account</a>
+                             
+     <a  href="{{route('users.account')}}" >Account</a>     
+                
+
      </div>
      <div class="auth-list">
                         <!-- Authentication Links -->
@@ -32,11 +35,11 @@
                             
                                 <a id="navbarDropdown"
                                  {{-- class="nav-link dropdown-toggle"  --}}
-                                 href="shelf/account" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                 role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                                 @if(Auth::user()->role=="admin")
-                                <a  href="admin/admin"
+                                <a  href="{{route('books.index')}}"
                                      >
                                         {{ __('dashboard') }}
                                     </a>

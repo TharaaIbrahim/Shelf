@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    margin: 3% 0;
+    margin: 7% 0;
 }
 .account-info {
     background-color: var(--gray);
@@ -26,24 +26,20 @@
     justify-content: space-evenly;
     font-weight: bold;
     width: 100%;
+    margin: 5% 0 5% 0;
 }
 .sections > a {
     background-color: var(--gray);
-    width: 10%;
+    /* width: 10%; */
     padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 8px 0 var(--shadow);
     color: black;
 }
-/* .sections > li > a {
-    color: black;
-} */
+
 .sections > a:hover {
-    background-image: linear-gradient(
-        to right,
-        var(--primary),
-        var(--nav_color)
-    );
+    background-color: var(--nav_color);
+    color: var(--primary) !important;
     cursor: pointer;
     color: black;
 }
@@ -52,4 +48,30 @@
 }
 .edit-delete > button {
     margin-right: 1rem;
+}
+@media only screen and (min-width: 280px) and (max-width: 499px) {
+    .account-info {
+        width: 70%;
+    }
+    .account-top > i {
+        font-size: 5em;
+    }
+
+    .sections {
+        /* width: 100%; */
+        justify-content: space-evenly;
+        font-size: 0.8em;
+    }
+    .sections > a {
+        /* width: 35%; */
+        margin-right: 0.5rem;
+    }
+}
+@media only screen and (min-width: 450px) and (max-width: 900px) {
+    .account-info {
+        width: 60%;
+    }
+    .account-top > i {
+        font-size: 7em;
+    }
 }

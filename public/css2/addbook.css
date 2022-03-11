@@ -25,7 +25,7 @@
 .categories,
 .image-input {
     align-self: center;
-    width: 40%;
+    width: 60%;
     margin-bottom: 1rem;
 }
 .image-input {
@@ -37,11 +37,12 @@
 .categories > select,
 .categories > label {
     width: 100% !important;
+    border-color: var(--background_body);
 }
-input,
-label {
+.input-form,
+.label-form {
     align-self: center;
-    width: 40%;
+    width: 60%;
     font-weight: bold;
     padding: 0.5rem;
     border-color: var(--background_body);
@@ -59,7 +60,7 @@ label {
 .description,
 #bookName_msg,
 #description_msg {
-    width: 40%;
+    width: 60%;
     align-self: center;
 }
 #bookName_msg,
@@ -77,10 +78,10 @@ label {
 }
 #delivery,
 #category {
-    width: 40%;
+    width: 60%;
 }
 .addBook_Btn {
-    width: 40%;
+    width: 60%;
     padding: 0.5rem;
     border: 1px solid var(--nav_color);
     background-color: var(--nav_color);
@@ -91,4 +92,30 @@ label {
 }
 .addBook_Btn:hover {
     background-color: #032b8f;
+}
+@media only screen and (min-width: 280px) and (max-width: 550px) {
+    .add_Book {
+        width: 80%;
+    }
+    .input-form,
+    .label-form,
+    .categories,
+    .image-input,
+    .description,
+    #delivery {
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 551px) and (max-width: 950px) {
+    .add_Book {
+        width: 60%;
+    }
+    .input-form,
+    .label-form,
+    .categories,
+    .image-input,
+    .description,
+    #delivery {
+        width: 90%;
+    }
 }

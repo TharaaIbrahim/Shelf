@@ -20,6 +20,8 @@
         <h1>On Shelf</h1>
       </div>
       <div class="search-categories">
+         <form method="GET" action="{{route('books.filter')}}" style="display:flex;justify-content:center;">
+         @csrf
         <div class="categories">
           <label for="category">Category</label>
           <select
@@ -27,25 +29,17 @@
             id="category"
             name="category"
           >
-            <option value="">Books Categories</option>
-            <option value="novel">Novel</option>
-            <option value="religious">Religious</option>
-            <option value="historical">Historical</option>
-            <option value="scientific">Scientific</option>
-            <option value="kids">Kids</option>
-            <option value="textBook">TextBook</option>
-            <option value="self development">Self development</option>
-            <option value="businees">businees</option>
+          <option>Categories</option>
+          @foreach($categories as $category)
+           <option value="{{$category->id}}">{{$category->category_name}}</option>
+            @endforeach
           </select>
         </div>
         <div class="searchBar">
-          <!-- <Input type="search" name="search" placeholder="Search ..." /> -->
-          <div class="row">
-            <form method="GET" action="" style="display:flex;justify-content:center;">
-              <input style="width: 50%;margin-right:1rem;" type="text" name="search" value="" placeholder="Search" class="form-control" id="search" />
-              <button type="submit" class="btn btn search-btn">Search</button>
-          </div>
+              <input style="width: 80%;margin-left:1rem;" type="text" name="search" value="" placeholder="Name,Price,Delivery" class="form-control" id="search" />
         </div>
+         <button type="submit" class="btn btn search-btn" style="height:35% !important;align-self: center !important;" >Search</button>
+         </form>
       </div>
 
       <div class="shelf-books">
@@ -64,7 +58,7 @@
         <b>Delivery Option:</b>
         {{$book->delivery}}
       </p>
-      <i class="far fa-heart" ></i>
+     <a href="{{route('books.favorite',$book->id)}}"><i class="far fa-heart" ></i></a> 
       <!-- <i class="fa fa-heart"></i> -->
     </div>
      @endforeach
