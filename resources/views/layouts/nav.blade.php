@@ -10,10 +10,12 @@
       <a class="links" href="/">Home</a>
       <a class="links" href="/books" >Shelf</a> 
       <a  Class="links" href="/about">About</a> 
-      <!-- <a  class="links" href="#">Contact</a>  -->
+    
+      @if ( !empty(Auth::user()))  
       <a  class="links" href="{{route('books.addbook')}}">Add Book</a> 
-                             
-     <a  href="{{route('users.account')}}" >Account</a>     
+      <a  href="{{route('users.account')}}" >Account</a>     
+                     @endif               
+    
                 
 
      </div>
@@ -33,7 +35,7 @@
                             @endif
                         @else
                             
-                                <a id="navbarDropdown"
+                                <a id="navbarDropdown" href="{{route('users.account')}}"
                                  {{-- class="nav-link dropdown-toggle"  --}}
                                  role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

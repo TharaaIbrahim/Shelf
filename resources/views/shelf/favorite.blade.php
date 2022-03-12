@@ -30,11 +30,12 @@
         <ul class="sections">
       <a  href="{{route('users.mybooks')}}"   > <li >My Books</li> </a>
          <a href="/addbook">  <li>Add Book </li></a>
-         <a  href="{{route('users.mybooks')}}" style="background-color:var(--nav_color);  transform: scale(.90, .90);"  > <li style="color:var(--primary);">Favorite</li></a> 
+         <a  href="{{route('books.favorites')}}" style="background-color:var(--nav_color);  transform: scale(.90, .90);"  > <li style="color:var(--primary);">Favorite</li></a> 
         </ul>
       </main>
       <div class="shelf-books">
-        @foreach($userBooks as $book)
+        @if(!empty(Session::get('favorite')))
+       @foreach(Session::get('favorite') as $book)
       <div class="card-container">
       <img src="{{ asset('/assets/img/'.$book->image) }}" alt="{{$book->book_name}}" >
       <h3>{{$book->book_name}}</h3>
@@ -49,11 +50,12 @@
         <b>Delivery Option:</b>
         {{$book->delivery}}
       </p>
-      <i class="far fa-heart" ></i>
-      <!-- <i class="fa fa-heart"></i> -->
+      <a href="{{route('books.deleteFav',$book->id)}}"> <i class="fa fa-heart"></i></a>
     </div>
-     @endforeach
-  
+   @endforeach
+   
+   @else
+   <div style="text-align:center ;width:100% !important;">No Favorite Books Yet! </div>@endif
       </div>
     </div>.<script src="js2/nav.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

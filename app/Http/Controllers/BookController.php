@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Models\Book;
+use App\Models\User;
 use App\Models\category;
 use Illuminate\Http\Request;
-use Session;
+// use Session;
 
 class BookController extends Controller
 {
@@ -124,7 +126,12 @@ class BookController extends Controller
         //
         $categories=Category::all();
         $selected=Category::find($book->category_id);
-        return view('admin.bookedit',compact('book','categories','selected'));
+        if(Auth::user()->role=="admin"){
+            return view('admin.bookedit',compact('book','categories','selected'));
+        }else{
+            return view('shelf.editBook',compact('book','categories','selected'));
+        }
+        
     }
 
     /**
@@ -151,7 +158,29 @@ class BookController extends Controller
         ])->Join('users','books.user_id', '=', 'users.id')
         ->Join('categories','categories.id', '=','books.category_id')
         ->get();
-        return view('admin.tables',compact("books"));  
+        if(Auth::user()->role=="admin"){
+            return view('admin.tables',compact("books"));  
+        }else{
+            $id= Auth::user()->id ;
+            $userAccount=User::where('id',$id)->first();
+            $userBooks= DB::table('books')->select([
+                'users.name',
+                'books.id',
+                'books.book_name',
+                'books.description',
+                'books.delivery',
+                'books.image',
+                'books.price',
+                'books.phone',
+                'categories.category_name',
+            ])->Join('users','books.user_id', '=', 'users.id')
+            ->Join('categories','categories.id', '=','books.category_id')
+            ->Where('users.id', '=' , $id)
+            ->get();
+            // dd($userAccount);
+            return view ('shelf.userBooks',compact('userBooks','userAccount'));
+        }
+       
     }
     
     public function filter(Request $request){
@@ -192,7 +221,66 @@ class BookController extends Controller
         ->Join('categories','categories.id', '=','books.category_id')
         ->where('books.id',$id)
         ->first();
+         
+       
+        //   Session::forget('favorite');
+          if(Session::has('favorite')){
+         Session::push('favorite',$book);
+        }else{ 
+            Session::put('favorite',[$book]);
+           
+        }
+
+        $categories=Category::all();
+        $books= DB::table('books')->select([
+            'users.name',
+            'books.id',
+            'books.book_name',
+            'books.description',
+            'books.delivery',
+            'books.image',
+            'books.price',
+            'books.phone',
+            'categories.category_name',
+        ])->Join('users','books.user_id', '=', 'users.id')
+        ->Join('categories','categories.id', '=','books.category_id')
+        ->get();
+       
+        return view('shelf/shelf',compact('books','categories'));
         
+    }
+
+    public function deleteFav($id){
+        for($index=0 ; $index < count(Session::get('favorite')) ; $index++){
+            if (Session::get('favorite')[$index]->id == $id){
+                array_splice( Session::get('favorite'), $index , 1);
+                 break;
+            } 
+        }
+      
+    //   dd(Session::get('favorite'));
+        $categories=Category::all();
+        $books= DB::table('books')->select([
+            'users.name',
+            'books.id',
+            'books.book_name',
+            'books.description',
+            'books.delivery',
+            'books.image',
+            'books.price',
+            'books.phone',
+            'categories.category_name',
+        ])->Join('users','books.user_id', '=', 'users.id')
+        ->Join('categories','categories.id', '=','books.category_id')
+        ->get();
+       
+        return view('shelf/shelf',compact('books','categories'));
+    }
+
+    public function favorites(){
+        $id= Auth::user()->id ;
+        $userAccount=User::where('id',$id)->first();
+        return view('shelf.favorite',compact('userAccount'));
     }
    
 

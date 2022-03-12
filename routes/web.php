@@ -19,17 +19,14 @@ Route::get('/', [BookController::class, 'bestprice'])->name('books.bestprice');
 Route::get('/addbook', [BookController::class, 'addbook'])->name('books.addbook');
 Route::get('/filter', [BookController::class, 'filter'])->name('books.filter');
 Route::get('/account', [UserController::class, 'account'])->name('users.account');
+Route::get('/favorite', [BookController::class, 'favorites'])->name('books.favorites');
 Route::get('/mybooks', [UserController::class, 'userBooks'])->name('users.mybooks');
 Route::get('/favorite/{id}', [BookController::class, 'favorite'])->name('books.favorite');
+Route::get('/deleteFav/{id}', [BookController::class, 'deleteFav'])->name('books.deleteFav');
 Route::get('/about', function () {
     return view('shelf/about');
 });
-// Route::get('/account', function () {
-//     return view('shelf/account');
-// });
-// Route::get('/addbook', function () {
-//     return view('shelf/addbook');
-// });
+
 Route::get('/contact', function () {
     return view('shelf/contact');
 });

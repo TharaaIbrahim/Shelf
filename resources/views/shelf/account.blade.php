@@ -29,10 +29,10 @@
         <ul class="sections">
     <a  href="{{route('users.mybooks')}}" ><li>My Books</li>  </a>  
          <a href="/addbook">  <li>Add Book </li></a>
-        <a><li>Favorite</li></a>  
+        <a href="{{route('books.favorites')}}"><li>Favorite</li></a>  
         </ul>
       </main>
-    </div>.<script src="js2/nav.js" ></script>
+    </div><script src="js2/nav.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
