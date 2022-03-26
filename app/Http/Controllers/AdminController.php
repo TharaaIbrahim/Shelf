@@ -26,6 +26,8 @@ class AdminController extends Controller
             'books.description',
             'books.delivery',
             'books.image',
+            'books.phone',
+            'books.address',
             'books.price',
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')

@@ -49,6 +49,7 @@ class UserController extends Controller
             'books.image',
             'books.price',
             'books.phone',
+            'books.address',
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')
         ->Join('categories','categories.id', '=','books.category_id')

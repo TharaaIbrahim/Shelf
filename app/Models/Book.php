@@ -16,6 +16,7 @@ class Book extends Model
         'phone',
         'price',
         'image',
+        'address',
         'delivery',
         'category_id',
         'user_id'

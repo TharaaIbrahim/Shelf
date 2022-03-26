@@ -58,16 +58,9 @@
     height: 2.2rem;
 }
 .description,
-#bookName_msg,
-#description_msg {
+.error {
     width: 60%;
     align-self: center;
-}
-#bookName_msg,
-#description_msg {
-    font-size: 0.8em;
-    font-weight: bold;
-    color: red;
 }
 .delivery_Status,
 .category_Select {

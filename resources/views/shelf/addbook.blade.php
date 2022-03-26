@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add-Book</title>
+    <meta name="description" content="Shelf is a Joradnian Website ,Allows user to buy books or sell thier own Books">
+    <meta name="keywords" content="book, buy, used , sell ,shelf">
+    <meta name="application-name" content="shelf">
+    <title>Shelf|AddBook</title>
+    <!-- CSS only -->
+    <link rel = "icon" href = "assets\img\books1648289621.ico" 
+        type = "image/x-icon">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="css2/addbook.css" rel="stylesheet" >
     <link href="css2/nav.css" rel="stylesheet" >
     <link href="css2/index.css" rel="stylesheet" > 
@@ -21,6 +28,7 @@
       @csrf
       <label class="label-form" for="book_name">Book Name</label>
         <Input
+        id="book_name"
         class="input-form"
           type="text"
           name="book_name"
@@ -28,9 +36,8 @@
           required
         >
         @if(!empty(Session::get('message')))
-                           <div class="alert alert-danger"> {{ Session::get('message') }}</div>
+                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
                             @endif
-        <p id="bookName_msg"></p>
         <label class="label-form" for="description">Description</label>
         <textarea
           rows="5"
@@ -41,15 +48,24 @@
           required
         ></textarea>
         @if(!empty(Session::get('message')))
-                           <div class="alert alert-danger"> {{ Session::get('message') }}</div>
+                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
                             @endif
-        <p id="description_msg"></p>
         <label class="label-form" for="phone">Phone</label>
         <Input
+        id="phone"
         class="input-form"
           type="tel"
           name="phone"
           placeholder="0XX XXXXXXX"
+          required
+        >
+        <label class="label-form" for="address">Address</label>
+        <Input
+        id="address"
+        class="input-form"
+          type="text"
+          name="address"
+          placeholder="city - street"
           required
         >
         <div class="categories">
@@ -68,8 +84,10 @@
         </div>
         <label class="label-form" for="price">Price</label>
         <Input
+        id="price"
         class="input-form"
           type="number"
+          min="0"
           name="price"
           placeholder="JD"
           required
@@ -80,7 +98,7 @@
         </div>
        
         <div class="delivery_Status">
-          <label class="label-form" htmlFor="delivery">Delivery Option</label>
+          <label class="label-form" for="delivery">Delivery Option</label>
           <select
             id="delivery"
             name="delivery"

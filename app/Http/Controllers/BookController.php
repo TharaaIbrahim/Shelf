@@ -30,6 +30,7 @@ class BookController extends Controller
             'books.description',
             'books.delivery',
             'books.image',
+            'books.address',
             'books.price',
             'books.phone',
             'categories.category_name',
@@ -74,12 +75,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        if($request->book_name.length() >10){
-            return redirect()->back()->with('message','name must be less than 10 char');
-        }else if($request->description.length() > 25){
-            return redirect()->back()->with('message','description must be less than 10 char');
-        }else{
+        
+        if(strlen($request -> book_name) >15){
+            return redirect()->back()->with('message','name must be less than 15 char');
+        } if(strlen($request->description) > 50){
+            return redirect()->back()->with('message','description must be less than 30 char');
+        }
+            $categories=Category::all();
                Book::create($request->all());
         $books= DB::table('books')->select([
             'users.name',
@@ -88,6 +90,7 @@ class BookController extends Controller
             'books.description',
             'books.delivery',
             'books.image',
+            'books.address',
             'books.price',
             'books.phone',
             'categories.category_name',
@@ -97,10 +100,10 @@ class BookController extends Controller
         if(Auth::user()->role == "admin"){
            return view('admin.tables',compact("books")); 
         }else{
-            return view('shelf/shelf',compact("books"));
+            return view('shelf/shelf',compact("books","categories"));
         }
         
-        }
+        
      
     }
 
@@ -145,7 +148,7 @@ class BookController extends Controller
     {
         //
         
-        $book->update(['book_name'=>$request->name,'description'=>$request->description,'image'=>$request->image,'category_id'=>$request->category_id]);   
+        $book->update(['book_name'=>$request->name,'description'=>$request->description,'phone'=>$request->phone,'address'=>$request->address,'image'=>$request->image,'category_id'=>$request->category_id]);   
         $books= DB::table('books')->select([
             'users.name',
             'books.id',
@@ -153,6 +156,8 @@ class BookController extends Controller
             'books.description',
             'books.delivery',
             'books.image',
+            'books.address',
+            'books.phone',
             'books.price',
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')
@@ -171,6 +176,7 @@ class BookController extends Controller
                 'books.delivery',
                 'books.image',
                 'books.price',
+                'books.address',
                 'books.phone',
                 'categories.category_name',
             ])->Join('users','books.user_id', '=', 'users.id')
@@ -193,6 +199,7 @@ class BookController extends Controller
             'books.delivery',
             'books.phone',
             'books.image',
+            'books.address',
             'books.price',
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')
@@ -201,6 +208,7 @@ class BookController extends Controller
         ->orWhere('books.book_name','LIKE',"%{$request->search}%")
         ->orWhere('books.delivery','LIKE',"%{$request->search}%")
         ->orWhere('books.price','LIKE',"%{$request->search}%")
+        ->orWhere('books.address','LIKE',"%{$request->search}%")
         ->get();
         // dd($books);
         return view('shelf.shelf',compact('books','categories'));
@@ -215,6 +223,7 @@ class BookController extends Controller
             'books.delivery',
             'books.phone',
             'books.image',
+            'books.address',
             'books.price',
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')
@@ -239,6 +248,7 @@ class BookController extends Controller
             'books.description',
             'books.delivery',
             'books.image',
+            'books.address',
             'books.price',
             'books.phone',
             'categories.category_name',
@@ -251,9 +261,11 @@ class BookController extends Controller
     }
 
     public function deleteFav($id){
+        $book = Session::get('favorite');    
         for($index=0 ; $index < count(Session::get('favorite')) ; $index++){
             if (Session::get('favorite')[$index]->id == $id){
-                array_splice( Session::get('favorite'), $index , 1);
+                unset($book[$id]); 
+                Session::put('favorite', $book); 
                  break;
             } 
         }
@@ -267,6 +279,7 @@ class BookController extends Controller
             'books.description',
             'books.delivery',
             'books.image',
+            'books.address',
             'books.price',
             'books.phone',
             'categories.category_name',

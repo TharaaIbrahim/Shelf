@@ -53,6 +53,8 @@
                                             <th>price</th>
                                             <th>description</th>
                                             <th>delivery</th>
+                                            <th>phone</th>
+                                            <th>address</th>
                                             <th>Edit</th>
                                             <th>delete</th>
                                         </tr>
@@ -67,6 +69,8 @@
                                             <td>{{$book->price}}JD</td>
                                             <td>{{$book->description}}</td>
                                             <td>{{$book->delivery}}</td>
+                                            <td>{{$book->phone}}</td>
+                                            <td>{{$book->address}}</td>
                                             
                                            
                                             <td><button class="edit"  style="background-color:green !important;color:white;border:none;padding:0.5rem;border-radius:3px"><a style="text-decoration:none; color:white"href="{{route('books.edit',$book->id)}}">edit</a></button></td>

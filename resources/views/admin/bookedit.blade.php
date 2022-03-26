@@ -36,16 +36,25 @@
                                                 <div class="col-md-6">
                                                 <div class="form-floating mb-3"> 
                                                 <input type="file" id="myfile" name="image"  required>
-                                                <!-- <input class="form-control" id="inputEmail" type="text" placeholder="Enter Image" name="image"  />
-                                                <label for="inputEmail">Image</label> -->
                                             </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description" value="{{$book->description}}" />
-                                                <label for="inputEmail">Description</label>
+                                                <input class="form-control" id="description" type="text" placeholder="Enter description" name="description" value="{{$book->description}}" />
+                                                <label for="description">Description</label>
                                             </div>
-                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="tel"  name="phone"
+                                             value="{{$book->phone}}"
+                                             placeholder="07X XXXXXXX" />
+                                                <label for="phone">Phone</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="address" type="text"  name="address"
+                                                value="{{$book->address}}"
+                                             placeholder="city - street" />
+                                                <label for="address">Address</label>
+                                            </div>
                                             <select name="category_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                                             @foreach($categories as $category)
                                                          @if($category->category_name != $selected->category_name) 

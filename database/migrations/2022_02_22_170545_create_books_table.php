@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->text('phone');
             $table->double('price');
             $table->text('image');
+            $table->text('address');
             $table->enum('delivery', ['available', 'unavailable']);
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
      <nav class="topnav">
      <div class="Logo">  
        <label class='logo-label'>Shelf</label>
-<img src="assets/img/shelf-logo white.png" alt="shelf website's logo">
+        <img src="assets/img/shelf-logo white.png" alt="shelf website's logo">
           </div>
         <button class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
@@ -12,11 +12,8 @@
       <a  Class="links" href="/about">About</a> 
     
       @if ( !empty(Auth::user()))  
-      <a  class="links" href="{{route('books.addbook')}}">Add Book</a> 
-      <a  href="{{route('users.account')}}" >Account</a>     
-                     @endif               
-    
-                
+      <a  class="links" href="{{route('books.addbook')}}">Add Book</a>     
+                     @endif                  
 
      </div>
      <div class="auth-list">
@@ -35,17 +32,16 @@
                             @endif
                         @else
                             
-                                <a id="navbarDropdown" href="{{route('users.account')}}"
-                                 {{-- class="nav-link dropdown-toggle"  --}}
-                                 role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                                @if(Auth::user()->role=="admin")
-                                <a  href="{{route('books.index')}}"
+                        <a  href="{{route('users.account')}}"
                                      >
-                                        {{ __('dashboard') }}
+                                     {{ Auth::user()->name }}
                                     </a>
-                                    @endif
+                                @if(Auth::user()->role=="admin")
+                                <a  href="{{route('admin.index')}}"
+                                     >
+                                     {{ __('dashboard') }}
+                                    </a>
+                                    @endif    
                                 {{-- <div class="row" --}}
                                 {{-- class="dropdown-menu dropdown-menu-end" --}}
                                  {{-- aria-labelledby="navbarDropdown"

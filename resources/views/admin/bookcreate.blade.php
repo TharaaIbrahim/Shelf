@@ -21,7 +21,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Room</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Book</h3></div>
                                     <div class="card-body">
                                         <form method="post" action="{{route('books.store')}}">
                                         @csrf
@@ -31,10 +31,13 @@
                                                         <input class="form-control" id="inputFirstName" type="text" placeholder="Enter room name" name="book_name"  />
                                                         <label for="inputFirstName">Book Name</label>
                                                     </div>
+                                                    @if(!empty(Session::get('message')))
+                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
+                            @endif
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" id="inputLastName" type="number" placeholder="Enter price" name="price"  />
+                                                        <input class="form-control" id="inputLastName" min="0" type="number" placeholder="Enter price" name="price"  />
                                                         <label for="inputLastName">Price</label>
                                                     </div>
                                                 </div>
@@ -43,10 +46,21 @@
                                                 <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description"  />
                                                 <label for="inputEmail">Description</label>
                                             </div>
+                                            @if(!empty(Session::get('message')))
+                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
+                            @endif
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="tel"  name="phone"
+                                             placeholder="07X XXXXXXX" />
+                                                <label for="phone">Phone</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="address" type="text"  name="address"
+                                             placeholder="city - street" />
+                                                <label for="address">Address</label>
+                                            </div>
                                             <div class="form-floating mb-3"> 
                                                 <input type="file" id="myfile" name="image">
-                                                <!-- <input class="form-control" id="inputEmail" type="text" placeholder="Enter Image" name="image"  />
-                                                <label for="inputEmail">Image</label> -->
                                             </div>
                                          
                                             <select name='category_id' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -55,22 +69,7 @@
                                                           <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                           @endforeach
                                             </select>
-                                                <!-- <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                      <select name='category_id' class="col-md-6">
-                                                          <option>Category</option>
-                                                          @foreach($categories as $category)
-                                                          <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                                          @endforeach
-                                                      </select>
-                                                    </div> -->
-                                               
-                                                <!-- <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="number" placeholder="Admin" name="user_id"/>
-                                                        <label for="inputPasswordConfirm">User Name</label>
-                                                    </div>
-                                                </div> -->
+                                                
                                             <div class="mt-4 mb-0">
                                                 <div class="d-grid"><button type="submit">Create Book</button></div>
                                             </div>
