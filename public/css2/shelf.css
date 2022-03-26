@@ -49,7 +49,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 65vh; */
     padding: 0.5rem;
     border: 5px solid var(--nav_color);
     border-radius: 10px;

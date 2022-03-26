@@ -1,8 +1,8 @@
      <nav class="topnav">
-     <div class="Logo">  
+     <a class="Logo" href="/">  
        <label class='logo-label'>Shelf</label>
-        <img src="assets/img/shelf-logo white.png" alt="shelf website's logo">
-          </div>
+        <img src="{{asset('assets/img/shelf-logo white.png')}}" alt="shelf website's logo">
+          </a>
         <button class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
         </button>
@@ -14,7 +14,6 @@
       @if ( !empty(Auth::user()))  
       <a  class="links" href="{{route('books.addbook')}}">Add Book</a>     
                      @endif                  
-
      </div>
      <div class="auth-list">
                         <!-- Authentication Links -->

@@ -58,9 +58,11 @@
         <b>{{$book->price}} JD</b>
       </p>
       <p>{{$book->description}}</p>
+      @if ( !empty(Auth::user()))
       <p> <b>Published by:</b> {{$book->name}}</p>
       <p>  <i class="far fa-phone"></i> {{$book->phone}} </p>
-      <p> <i class="far fa-address"></i> {{$book->address}}</p>
+      <p> <i class="far fa-map-pin"></i> {{$book->address}}</p>
+      @endif
       <p>
         <b>Delivery Option:</b>
         {{$book->delivery}}
