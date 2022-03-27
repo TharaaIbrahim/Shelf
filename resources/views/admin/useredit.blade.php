@@ -46,10 +46,10 @@
                                                          <option value='user' selected>   User </option> @endif
                                                           
                                             </select>
-                                            <div class="mb-3">
+                                            <!-- <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">password</label>
                                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                                            </div>
+                                            </div> -->
                                             <input class="mb-5" type="submit" value="submit">
                                         </form>                                       
                                         </div>

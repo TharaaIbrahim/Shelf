@@ -77,9 +77,9 @@ class BookController extends Controller
     {
         
         if(strlen($request -> book_name) >15){
-            return redirect()->back()->with('message','name must be less than 15 char');
+            return redirect()->back()->with('nameMessage','name must be less than 15 char');
         } if(strlen($request->description) > 50){
-            return redirect()->back()->with('message','description must be less than 30 char');
+            return redirect()->back()->with('descMessage','description must be less than 30 char');
         }
             $categories=Category::all();
                Book::create($request->all());
@@ -148,7 +148,7 @@ class BookController extends Controller
     {
         //
         
-        $book->update(['book_name'=>$request->name,'description'=>$request->description,'phone'=>$request->phone,'address'=>$request->address,'image'=>$request->image,'category_id'=>$request->category_id]);   
+        $book->update(['book_name'=>$request->name,'description'=>$request->description,'image'=>$request->image,'category_id'=>$request->category_id]);   
         $books= DB::table('books')->select([
             'users.name',
             'books.id',
@@ -204,7 +204,7 @@ class BookController extends Controller
             'categories.category_name',
         ])->Join('users','books.user_id', '=', 'users.id')
         ->Join('categories','categories.id', '=','books.category_id')
-        ->where('categories.category_name','LIKE',"%{$request->category}%")
+        ->Where('categories.category_name','LIKE',"%{$request->category}%")
         ->orWhere('books.book_name','LIKE',"%{$request->search}%")
         ->orWhere('books.delivery','LIKE',"%{$request->search}%")
         ->orWhere('books.price','LIKE',"%{$request->search}%")
@@ -270,7 +270,6 @@ class BookController extends Controller
             } 
         }
       
-    //   dd(Session::get('favorite'));
         $categories=Category::all();
         $books= DB::table('books')->select([
             'users.name',

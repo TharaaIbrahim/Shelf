@@ -31,8 +31,8 @@
                                                         <input class="form-control" id="inputFirstName" type="text" placeholder="Enter room name" name="book_name"  />
                                                         <label for="inputFirstName">Book Name</label>
                                                     </div>
-                                                    @if(!empty(Session::get('message')))
-                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
+                                                    @if(!empty(Session::get('nameMessage')))
+                           <div class="alert alert-danger error"> {{ Session::get('nameMessage') }}</div>
                             @endif
                                                 </div>
                                                 <div class="col-md-6">
@@ -46,8 +46,8 @@
                                                 <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description"  />
                                                 <label for="inputEmail">Description</label>
                                             </div>
-                                            @if(!empty(Session::get('message')))
-                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
+                                            @if(!empty(Session::get('descMessage')))
+                           <div class="alert alert-danger error"> {{ Session::get('descMessage') }}</div>
                             @endif
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="tel"  name="phone"

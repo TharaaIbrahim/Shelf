@@ -35,8 +35,8 @@
           placeholder="Book Name"
           required
         >
-        @if(!empty(Session::get('message')))
-                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
+        @if(!empty(Session::get('nameMessage')))
+                           <div class="alert alert-danger error"> {{ Session::get('nameMessage') }}</div>
                             @endif
         <label class="label-form" for="description">Description</label>
         <textarea
@@ -47,8 +47,8 @@
           placeholder="Enter Description"
           required
         ></textarea>
-        @if(!empty(Session::get('message')))
-                           <div class="alert alert-danger error"> {{ Session::get('message') }}</div>
+        @if(!empty(Session::get('descMessage')))
+                           <div class="alert alert-danger error"> {{ Session::get('descMessage') }}</div>
                             @endif
         <label class="label-form" for="phone">Phone</label>
         <Input

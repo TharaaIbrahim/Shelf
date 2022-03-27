@@ -35,6 +35,9 @@
        <a href="{{route('books.index')}}"><button class="login">
          Show Shelf
         </button></a>
+        <a href="/about"><button class="login">
+         About
+        </button></a>
         
       </div>
     </div>
